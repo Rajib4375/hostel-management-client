@@ -1,0 +1,111 @@
+[
+    {
+        "_id": "642c155b2c4774f05c36eeaa",
+        "name": "paratha and dal baji mix",
+        "details": "It seems like there might be a slight confusion in your question. Paratha and dal baji are two separate dishes from Indian cuisine.",
+        "image": "https://i.ibb.co/qxT80yJ/Ruti-vegetable.jpg",
+        "category": "breakfast",
+        "price": 70,
+        "rating": 4
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb9",
+        "name": "Mutton kolija and parata",
+        "details": "It seems like you're referring to a dish called Mutton Kolija and Parata,likely a variation of Paratha.",
+        "image": "https://i.ibb.co/w7y9BnJ/Parotaa-and-beef-vegetable.jpg",
+        "category": "breakfast",
+        "price": 140,
+        "rating": 3
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee7c",
+        "name": "breakfast burritos",
+        "details": "Filled with sausage, eggs, cheese and fresh avocado salsa, these bodega-style breakfast burritos are ...",
+        "image": "https://i.ibb.co/smB50d3/burritos.jpg",
+        "category": "breakfast",
+        "price": 60,
+        "rating": 3
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee88",
+        "name": " Chicken Salami Grilled Sandwich",
+        "details": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
+        "image": "https://i.ibb.co/QvDhjjc/356412203-566170325715622-6890325379082844022-n.jpg",
+        "category": "breakfast",
+        "price": 12.5,
+        "rating": 4
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee7a",
+        "name": "beef khichiuri",
+        "details": "It seems like there might be a bit of confusion in your request. Khichdi or Khichuri is a dish made with rice and lentils, often seasoned with spices.",
+        "image": "https://i.ibb.co/MktYQYV/beef-khicuri.webp",
+        "category": "lunch",
+        "price": 150,
+        "rating": 3
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee8c",
+        "name": "rice vegetable chicken",
+        "details": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
+        "image": "https://i.ibb.co/pQFSFzb/0b4a9e9bde57395d4a177c22f2b5a386.jpg",
+        "category": "lunch",
+        "price": 120,
+        "rating": 3
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee94",
+        "name": "rice vegetable beef",
+        "details": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
+        "image": "https://i.ibb.co/nwRnYzm/South-Indian-Vegetarian-rice-and-beef.jpg",
+        "category": "lunch",
+        "price": 130,
+        "rating": 3
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee9e",
+        "name": "rice mutton curry",
+        "details": "Chargrilled mutton curry with avocado, baby gem lettuce, baby spinach, shallots, French beans, walnuts, croutons and a mustard dressing",
+        "image": "https://i.ibb.co/zXZ4DMG/sunday-mutton-curry-01.jpg",
+        "category": "lunch",
+        "price": 150,
+        "rating": 4
+    },
+    {
+        "_id": "642c155b2c4774f05c36eea6",
+        "name": "Chicken and Walnut Salad",
+        "details": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
+        "category": "dinner",
+        "price": 13.5,
+        "rating": 3
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeaf",
+        "name": "rice mutton curry",
+        "details": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
+        "image": "https://i.ibb.co/zXZ4DMG/sunday-mutton-curry-01.jpg.jpg",
+        "category": "dinner",
+        "price": 150,
+        "rating": 4
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee89",
+        "name": "Chicken and Walnut Salad",
+        "details": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
+        "category": "dinner",
+        "price": 13.5,
+        "rating": 4
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee8a",
+        "name": "beef khichiuri",
+        "details": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
+        "image": "https://i.ibb.co/MktYQYV/beef-khicuri.webp",
+        "category": "dinner",
+        "price": 12.5,
+        "rating": 4 
+    }
+    
+]
