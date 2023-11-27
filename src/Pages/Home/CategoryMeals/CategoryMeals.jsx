@@ -3,6 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import UseFoods from '../../../hooks/UseFoods';
 import FoodTab from './FoodTab/FoodTab';
+import Meals from '../../Meals/Meals';
 
 const CategoryMeals = () => {
     const [tabIndex, setTabIndex] = useState(0);
@@ -16,12 +17,14 @@ const CategoryMeals = () => {
         <div>
             <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
   <TabList>
-  
+  <Tab>All Meals</Tab>
     <Tab>Breakfast</Tab>
     <Tab>Lunch</Tab>
     <Tab>Dinner</Tab>
   </TabList>
-  
+  <TabPanel>
+  <Meals></Meals>
+  </TabPanel>
   <TabPanel>
   <FoodTab items={breakfast}></FoodTab>
   </TabPanel>
