@@ -4,6 +4,10 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import { FcGoogle } from 'react-icons/fc';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+
+import { app } from '../../firebase/firebase.config';
 
 const Login = () => {
   
@@ -51,6 +55,21 @@ const Login = () => {
       
     }
 
+    const Auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = ()=>{
+      signInWithPopup(Auth, provider)
+      .then(result =>{
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        navigate(from, {replace: true});
+      })
+      .catch(error =>{
+        console.log('error', error.message)
+      })
+    }
+
 
 
     return (
@@ -92,6 +111,7 @@ const Login = () => {
         
           <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
         </div>
+        <button onClick={handleGoogleSignIn}  className="btn btn-outline btn-primary"> <FcGoogle></FcGoogle> Continue With Google</button>
       </form>
       <p className="text-center mb-5"><small>New Here ? <Link to="/signup">Create an Account</Link></small></p>
     </div>

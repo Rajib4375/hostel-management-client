@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { FaShoppingCart } from 'react-icons/fa';
+import useCart from "../../../hooks/useCart";
 
 
 const Navbar = () => {
   const {user,logOut} = useContext(AuthContext);
+  const [cart]= useCart();
   
   const handleLogOut = () =>{
      logOut()
@@ -16,19 +18,14 @@ const Navbar = () => {
     const navOptions = <>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/meals">Meals</Link></li>
+    <li><Link to="/login">Login</Link></li>
     <li><Link to="/">
     <button className="btn">
     <FaShoppingCart></FaShoppingCart>
-    <div className="badge badge-secondary">+0</div>
+    <div className="badge badge-secondary">+{cart.length}</div>
    </button>
     </Link></li>
-    {
-      user ? <>
-       <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
-      </> : <>
-       <li><Link to="/login">Login</Link></li>
-      </>
-    }
+    
     </>
     return (
         <>
@@ -52,7 +49,21 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-   
+  <details className="dropdown">
+  <summary className="m-1 btn">
+  {
+      user && <div>
+        <img className="w-10 h-10 rounded-full " src={user.photoURL} alt="" />
+      </div>
+    }
+  </summary>
+  <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+    <li><a>{user?.displayName}</a></li>
+    <li><a>Dashboard</a></li>
+    <li><a onClick={handleLogOut}>LogOut</a></li>
+    
+  </ul>
+</details>
   </div>
 </div>
         </>

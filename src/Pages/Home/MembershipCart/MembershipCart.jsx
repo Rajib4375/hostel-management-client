@@ -7,7 +7,7 @@ const MembershipCart = () => {
     const [membarships, setMembarship] = useState([]);
 
     useEffect(() =>{
-        fetch('membership.json')
+        fetch('http://localhost:5000/membarship')
         .then(res => res.json())
         .then(data =>setMembarship(data))
     },[])
