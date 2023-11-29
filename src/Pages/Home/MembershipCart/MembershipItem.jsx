@@ -17,6 +17,7 @@ const MembershipItem = ({membarship}) => {
     const axiosSecure = useAxiousSecure();
     const [, refetch] = useCart();
     const handleAddToCart = card =>{
+        
        if(user && user.email){
         console.log(user.email, card);
         const cartItem = {

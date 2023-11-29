@@ -2,10 +2,11 @@
 
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
+import { Link } from "react-router-dom";
 
 
 const FoodCard = ({item}) => {
-  const {name, details, image,  price,rating} = item;
+  const {name, details, image,  price,rating, _id} = item;
   
   
 
@@ -22,7 +23,7 @@ const FoodCard = ({item}) => {
       readOnly
     />
   <div className="card-actions justify-end">
-    <button  className="btn bg-[#D99904] text-white">Details</button>
+   <Link to={`/details/${_id}`}><button  className="btn bg-[#D99904] text-white">Details</button></Link>
   </div>
 </div>
 </div>
