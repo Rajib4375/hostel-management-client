@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+ const axiousSecure = axios.create({
+    baseURL: 'https://hostel-management-server-alpha.vercel.app'
 })
 const useAxiousSecure = () => {
-    return axiosSecure;
+    return axiousSecure;
 };
 
 export default useAxiousSecure;

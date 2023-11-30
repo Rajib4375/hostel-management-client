@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 
 import { Rating } from "@smastrom/react-rating";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { AiFillLike } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useAxiousSecure from "../../hooks/UseAxiousSecure";
 import useCart from "../../hooks/useCart";
+import useLike from "../../hooks/UseLike";
+
 
 
 const FoodDetailsCard = ({food}) => {
@@ -16,6 +18,9 @@ const FoodDetailsCard = ({food}) => {
     const navigate = useNavigate();
     const axiosSecure = useAxiousSecure();
     const [, refetch] = useCart();
+
+    const [isLike, setIsLike] = useState(false);
+    const [likes] = useLike();
     
     
     const handleAddToCart = item =>{
@@ -61,6 +66,50 @@ const FoodDetailsCard = ({food}) => {
       }
     }
 
+    const handleLike = () =>{
+      if(user && user.email){
+        const likeItem ={
+          likeId : _id,
+          email: user.email
+        }
+        axiosSecure.post(`/like/${_id}`, likeItem)
+        .then(res =>{
+          console.log(res.data)
+        })
+
+        if(isLike){
+          setIsLike(false)
+        }
+        else{
+           setIsLike(true)
+           Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Like successful",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          refetch();
+        }
+      }
+      else{
+        Swal.fire({
+          title: "You are not logged in",
+          text: "Please log in to like this item",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Please Login",
+        })
+        .then((result)=>{
+          if (result.isConfirmed){
+            navigate("/login");
+          }
+        })
+      }
+    }
+
     return (
         <div className="card card-side bg-base-100 shadow-xl">
   <figure><img className="w-[370px] h-[247px]" src={image} alt="Movie"/></figure>
@@ -69,7 +118,7 @@ const FoodDetailsCard = ({food}) => {
     <p>{details}</p>
     <p>{user?.displayName}</p>
     <Rating
-      style={{ maxWidth: 180 }}
+      style={{ maxWidth: 180 }} 
       value={rating}
       readOnly
     />
@@ -80,7 +129,7 @@ const FoodDetailsCard = ({food}) => {
     
     <div className="card-actions justify-end">
     
-   <span className="text-4xl font-bold "><AiFillLike /></span>
+   <span onClick={handleLike} className="text-4xl font-bold "><AiFillLike />{likes.length}</span>
    <button onClick={()=>handleAddToCart(food)} className="btn btn-success">Cofirm Meal</button>
     </div>
     

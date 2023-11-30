@@ -5,31 +5,49 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
+import useAxiousSecure from "../../hooks/UseAxiousSecure";
+
+
 
 
 const SignUp = () => {
+ const axiosSecure = useAxiousSecure();
   const {register,handleSubmit, reset, formState: { errors }} = useForm();
   const {createUser, updateUserProfile} = useContext(AuthContext); 
+  
   const navigate = useNavigate();
+ 
 
   const onSubmit = (data) =>{ 
-      console.log(data);
+      
       createUser(data.email, data.password)
       .then(result =>{
         const loggedUser = result.user;
         console.log(loggedUser);
         updateUserProfile(data.name, data.photoURl)
         .then(() =>{
-          console.log('user profile updated')
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User created successful",
-            showConfirmButton: false,
-            timer: 1500
-          });
-          navigate('/');
+          
+          const userInfo ={
+            name: data.name,
+            email: data.email,
+            Image: data.photoURl
+          }
+          axiosSecure.post('/users', userInfo)
+          .then(res=>{
+            if(res.data.insertedId){
+              console.log('user added database')
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User created successful",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              navigate('/')
+            }
+          })
+        
         })
          .catch(error =>console.log(error))
         

@@ -21,7 +21,7 @@ const Navbar = () => {
     <li><Link to="/">Home</Link></li>
     <li><Link to="/meals">Meals</Link></li>
     <li><Link to="/login">Login</Link></li>
-    <li><Link to="/">
+    <li><Link to="">
     <button className="btn">
     <FaShoppingCart></FaShoppingCart>
     <div className="badge badge-secondary">+{cart.length}</div>
@@ -61,7 +61,7 @@ const Navbar = () => {
   </summary>
   <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
     <li><a>{user?.displayName}</a></li>
-    <li><a>Dashboard</a></li>
+    <li><Link to="/dashbord/requestmeal">Dashboard</Link></li>
     <li><a onClick={handleLogOut}>LogOut</a></li>
     
   </ul>

@@ -7,7 +7,7 @@ const MembershipCart = () => {
     const [membarships, setMembarship] = useState([]);
 
     useEffect(() =>{
-        fetch('http://localhost:5000/membarship')
+        fetch('https://hostel-management-server-alpha.vercel.app/membarship')
         .then(res => res.json())
         .then(data =>setMembarship(data))
     },[])
