@@ -4,7 +4,7 @@ const UseFoods = () => {
    const [foods, setFoods] = useState([]);
    const [loading, setLoading] = useState(true);
    useEffect(()=>{
-     fetch('http://localhost:5000/foods')
+     fetch('https://hostel-management-server-alpha.vercel.app/foods')
      .then(res => res.json())
      .then(data =>{
         setFoods(data);
